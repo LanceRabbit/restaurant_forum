@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   # 後台
   # url path for admin 
   namespace :admin do
+    resources :restaurants
     root "restaurants#index"
   end
 end
