@@ -4,7 +4,7 @@ class Admin::RestaurantsController < ApplicationController
   # 後台權限驗證
   before_action :authenticate_admin
   
-  before_action :set_restaurant, only: [:show, :edit, :update]
+  before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
 
   def index
     # 由於是全部 (多筆) 餐廳資料，所以實例變數 ＠restaurants 使用複數。
@@ -41,7 +41,13 @@ class Admin::RestaurantsController < ApplicationController
       flash[:alert] = "restaurant was failed to update"
     end
   end
-  
+
+  def destroy
+    @restaurant.destroy
+    redirect_to admin_restaurants_path
+    flash[:alert] = "restaurant was deleted"
+  end
+    
   private
 
   def set_restaurant
