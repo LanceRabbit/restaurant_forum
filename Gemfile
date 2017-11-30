@@ -39,6 +39,9 @@ gem 'devise'
 # 上傳照片套件
 gem 'carrierwave'
 
+# 產生測試資料
+gem 'ffaker'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
