@@ -42,6 +42,9 @@ gem 'carrierwave'
 # 產生測試資料
 gem 'ffaker'
 
+# 產生分頁
+gem 'kaminari'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
