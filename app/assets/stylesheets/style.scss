@@ -1,0 +1,26 @@
+@media screen and (min-width: 768px) {
+  body {
+    //width: 800px;
+    //max-height: 1000px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+   body {
+    //width: 600px;
+    /*max-height: 500px;*/
+  }
+}
+
+body {
+  background-image: image-url("restaurant.jpg");
+  //background-color: rgba(5%, 5%, 5%, 1);
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+
+.container {
+ background-color: rgba(160, 159, 159, 0.5);
+
+}
