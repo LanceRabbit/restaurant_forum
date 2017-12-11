@@ -40,3 +40,13 @@ body {
 .restaurant-item .caption {
   padding: 10px;
 }
+
+.nav-pills-center {
+  text-align: center;
+}
+
+.nav-pills-center > li {
+  margin-top: 5px;
+  float: none;
+  display: inline-block;
+}
