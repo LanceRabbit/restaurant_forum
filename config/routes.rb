@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # 只有顯示無其他功能, only, except皆可使用
   resources :restaurants, only: [:index, :show]
   # resources :restaurants, except: [:new, :create, :edit, :update, :destroy]
+  resources :categories, only: :show
   root "restaurants#index"
   
   # 後台
