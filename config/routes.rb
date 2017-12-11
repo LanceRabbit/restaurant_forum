@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # 前台
+  # 只有顯示無其他功能, only, except皆可使用
+  resources :restaurants, only: [:index, :show]
+  # resources :restaurants, except: [:new, :create, :edit, :update, :destroy]
   root "restaurants#index"
   
   # 後台
