@@ -12,11 +12,13 @@
 //   }
 // }
 
+
 body {
   background-image: image-url("restaurant.jpg");
   //background-color: rgba(5%, 5%, 5%, 1);
   background-repeat: no-repeat;
   background-size: cover;
+  box-sizing: border-box;
   
 }
 
@@ -26,20 +28,34 @@ body {
 }
 
 .restaurant-item {
-  border: 1px solid #ddd;
-  border-radius: 4px;
   padding: 4px;
   margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow-y: hidden;
+  height: 300px;
+  // .picture {
+  //   max-height: 180px;
+  //   width: 100%;
+  // }
 }
 
 .restaurant-item img {
-  max-height: 180px;
+  max-height: 150px;
   width: 100%;
 }
 
 .restaurant-item .caption {
-  padding: 10px;
+  > h3 {
+    margin-top: 5px;
+  }
+  padding: 0 5px 0 10px;
+  .description {
+    padding-top: 5px;
+  }
 }
+
+
 
 .nav-pills-center {
   text-align: center;
