@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # 前台
   # 只有顯示無其他功能, only, except皆可使用
+  # 新增評論
   resources :restaurants, only: [:index, :show] do
     resources :comments, only: [:create, :destroy]
   end
