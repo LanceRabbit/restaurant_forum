@@ -3,15 +3,12 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # 前台
   # 只有顯示無其他功能, only, except皆可使用
-  resources :restaurants, only: [:index, :show]
-  # resources :restaurants, except: [:new, :create, :edit, :update, :destroy]
-  resources :categories, only: :show
-  root "restaurants#index"
-  
-  # 
   resources :restaurants, only: [:index, :show] do
     resources :comments, only: [:create, :destroy]
   end
+  # resources :restaurants, except: [:new, :create, :edit, :update, :destroy]
+  resources :categories, only: :show
+  root "restaurants#index"
 
   # 後台
   # url path for admin 
