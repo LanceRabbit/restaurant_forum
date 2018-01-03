@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   resources :restaurants, only: [:index, :show] do
     resources :comments, only: [:create, :destroy]
   end
+  
+  # 個人資訊
+  resources :users, only: [:show, :edit, :update]
+
   # resources :restaurants, except: [:new, :create, :edit, :update, :destroy]
   resources :categories, only: :show
   root "restaurants#index"
