@@ -20,7 +20,8 @@ namespace :dev do
       user_name = FFaker::Name.first_name
       User.create!(
         email: "#{user_name}@example.com",
-        password: "12345678"
+        password: "12345678",
+        name: "#{user_name}"
       )
     end
     puts " #{User.count} users data"
