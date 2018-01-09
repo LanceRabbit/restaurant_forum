@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   
+  #上傳照片
+  mount_uploader :avatar, AvatarUploader
+
   has_many :comments, dependent: :destroy
   
   # 驗證是否為Admin
