@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   
+  #客製化欄位,加入驗證         
+  validates_presence_of :name
+
   #上傳照片
   mount_uploader :avatar, AvatarUploader
 
