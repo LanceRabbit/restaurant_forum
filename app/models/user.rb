@@ -11,6 +11,7 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
 
   has_many :comments, dependent: :destroy
+  has_many :restaurants, through: :comments
   
   # 驗證是否為Admin
   def admin?
