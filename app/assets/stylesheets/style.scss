@@ -78,8 +78,16 @@ body {
   padding: 7px 7px 0 7px;
 }
 
+
+
 .my-restaurant > div {
-  height: 60px;
+  padding: 4px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow-y: hidden;
+  height: 100px;
+  width: 130px;
 }
 
 .my-restaurant img {

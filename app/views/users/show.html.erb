@@ -7,7 +7,10 @@
 
         <div class="col-md-3 col-sm-4">
           <div class="text-center">
-            <%= image_tag @user.avatar, class: "img-responsive img-rounded" %>
+            <!--<%= image_tag @user.avatar, class: "img-responsive img-rounded" %> -->
+            <%= image_tag @user.avatar, class: "img-responsive center-block" if @user.avatar?%>
+            <%= image_tag "http://via.placeholder.com/350x180", class: "img-responsive center-block img-rounded"  unless @user.avatar?%> 
+
           </div>
         </div>
 
@@ -34,8 +37,9 @@
             <% @commented_restaurants.each do |restaurant| %>
             <%= link_to restaurant_path(restaurant) do %>
             <div class="my-restaurant">
-              <div>
-                <%= image_tag restaurant.image, class: "img-responsive img-rounded" %>
+              <div >
+                <%= image_tag restaurant.image, class: "img-responsive center-block" if restaurant.image?%>
+                <%= image_tag "http://via.placeholder.com/130x100", class: "img-responsive center-block img-rounded"  unless restaurant.image?%> 
               </div>
               <h5><%= restaurant.name %></h5>
             </div>
