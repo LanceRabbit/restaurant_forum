@@ -6,6 +6,13 @@ Rails.application.routes.draw do
   # 新增評論
   resources :restaurants, only: [:index, :show] do
     resources :comments, only: [:create, :destroy]
+    
+    # 瀏覽所有餐廳的最新動態
+    # "Verb" "Action Name", :on => ":member or :collection"
+    get :feeds, :on => :collection
+
+    # 瀏覽個別餐廳的 Dashboard
+    get :dashboard, :on => :member
   end
   
   # 個人資訊
@@ -17,6 +24,8 @@ Rails.application.routes.draw do
 
   # 後台
   # url path for admin 
+  # 避免被猜出後台位置, 可修改名稱用path 替換 admin
+  # namespace :admin , path: "nobody123know" do
   namespace :admin do
     resources :restaurants
     resources :categories 
