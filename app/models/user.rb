@@ -10,7 +10,9 @@ class User < ApplicationRecord
   #上傳照片
   mount_uploader :avatar, AvatarUploader
 
-  has_many :comments, dependent: :destroy
+  # User 若有評論，就不允許刪除帳號（刪除時拋出 Error）
+  has_many :comments, dependent: :restrict_with_error
+
   has_many :restaurants, through: :comments
   
   # 驗證是否為Admin

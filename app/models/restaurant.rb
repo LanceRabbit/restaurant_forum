@@ -11,5 +11,7 @@ class Restaurant < ApplicationRecord
   # 然而，如果應用程式的邏輯允許「未分類」的 Restaurant 資料，
   # 你就需要在 belongs_to 的宣告後，加上 optional: true 的設定
   belongs_to :category
+  
+  #  dependent: :destroy 當Restaurant 物件被刪除時，將會刪除依賴的 Comment
   has_many :comments, dependent: :destroy
 end
