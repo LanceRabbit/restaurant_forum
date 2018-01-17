@@ -27,7 +27,7 @@ class Admin::RestaurantsController < Admin::BaseController
   end
 
   def show
-    @restaurant = Restaurant.find(params[:id])
+
   end
 
   def update

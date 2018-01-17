@@ -1,6 +1,8 @@
 class RestaurantsController < ApplicationController
   # 執行 authenticate_user 驗證
   before_action :authenticate_user!
+  before_action :set_restaurant, only: [:show, :dashboard, :favorite, :unfavorite]
+
 
   def index
     @restaurants = Restaurant.page(params[:page]).per(6)
@@ -9,7 +11,6 @@ class RestaurantsController < ApplicationController
   end
 
   def show
-    @restaurant = Restaurant.find(params[:id])
     @comment = Comment.new    # 評論
   end
 
@@ -23,6 +24,21 @@ class RestaurantsController < ApplicationController
   # GET restaurants/dashboard
   # 會去 render app/views/restuarants/dashboard.html.erb
   def dashboard
-     @restaurant = Restaurant.find(params[:id])
+
   end  
+
+  def favorite
+    @restaurant.favorites.create!(user: current_user)
+    redirect_back(fallback_location: root_path)  # 導回上一頁
+  end
+
+  def unfavorite
+    favorites = Favorite.where(restaurant: @restaurant, user: current_user)
+    favorites.destroy_all
+    redirect_back(fallback_location: root_path)
+  end
+
+  def set_restaurant
+    @restaurant = Restaurant.find(params[:id])
+  end
 end
