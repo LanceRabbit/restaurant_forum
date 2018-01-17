@@ -14,4 +14,8 @@ class Restaurant < ApplicationRecord
   
   #  dependent: :destroy 當Restaurant 物件被刪除時，將會刪除依賴的 Comment
   has_many :comments, dependent: :destroy
+
+  has_many :favorites, dependent: :destroy
+  # 參考user.rb說明
+  has_many :favorited_users, through: :favorites, source: :user
 end
