@@ -18,4 +18,10 @@ class Restaurant < ApplicationRecord
   has_many :favorites, dependent: :destroy
   # 參考user.rb說明
   has_many :favorited_users, through: :favorites, source: :user
+  
+  # 驗證使用者是否已點選過喜愛按鈕
+  def is_favorited?(user)
+    self.favorited_users.include?(user)
+  end
+
 end

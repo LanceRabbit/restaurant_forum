@@ -37,10 +37,6 @@ class RestaurantsController < ApplicationController
     favorites.destroy_all
     redirect_back(fallback_location: root_path)
   end
-
-  def is_favorited?(user)
-    self.favorited_users.include?(user)
-  end
   
   def set_restaurant
     @restaurant = Restaurant.find(params[:id])

@@ -8,6 +8,7 @@
         <h3><%= link_to restaurant.name, restaurant_path(restaurant) %></h3>
         <%= simple_format restaurant.category.name, class: "label label-default" %>
         <p class="description"><%= truncate(restaurant.description, length: 80) %></p>
+        <%= render partial: "shared/favorite", locals: {restaurant: restaurant} %>
       </div>
     </div>
   </div>
