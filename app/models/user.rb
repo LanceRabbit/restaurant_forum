@@ -21,6 +21,10 @@ class User < ApplicationRecord
   # 需另加 source 告知 Model name(指定 Model name，慣例使用單數)
   has_many :favorited_restaurants, through: :favorites, source: :restaurant
 
+  # 按讚餐廳
+  has_many :likes, dependent: :destroy
+  has_many :liked_restaurants, through: :likes, source: :restaurant  
+
   # 驗證是否為Admin
   def admin?
     self.role == "admin"
