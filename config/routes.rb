@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     # 瀏覽所有餐廳的最新動態
     # "Verb" "Action Name", :on => ":member or :collection"
     get :feeds, :on => :collection
+    # Top10人氣餐廳
+    get :ranking, :on => :collection
 
     # 瀏覽個別餐廳的 Dashboard
     get :dashboard, :on => :member
