@@ -9,6 +9,7 @@
         <%= simple_format restaurant.category.name, class: "label label-default" %>
         <p class="description"><%= truncate(restaurant.description, length: 80) %></p>
         <%= render partial: "shared/favorite", locals: {restaurant: restaurant} %>
+        <%= render partial: "shared/like", locals: {restaurant: restaurant} %>
       </div>
     </div>
   </div>
