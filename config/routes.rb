@@ -13,8 +13,13 @@ Rails.application.routes.draw do
 
     # 瀏覽個別餐廳的 Dashboard
     get :dashboard, :on => :member
+    # 收藏餐廳
     post :favorite, :on => :member
     post :unfavorite, :on => :member
+    # 按讚餐廳
+    post :like, :on => :member
+    post :unlike, :on => :member
+
   end
   
   # 個人資訊
