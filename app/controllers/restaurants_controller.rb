@@ -1,7 +1,7 @@
 class RestaurantsController < ApplicationController
   # 執行 authenticate_user 驗證
   before_action :authenticate_user!
-  before_action :set_restaurant, only: [:show, :dashboard, :favorite, :unfavorite]
+  before_action :set_restaurant, only: [:show, :dashboard, :favorite, :unfavorite , :like, :unlike]
 
 
   def index
@@ -38,6 +38,18 @@ class RestaurantsController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
   
+  def like
+    @restaurant.likes.create!(user: current_user)
+    redirect_back(fallback_location: root_path)  # 導回上一頁
+  end
+
+  def unlike
+    likes = Like.where(restaurant: @restaurant, user: current_user)
+    likes.destroy_all
+    redirect_back(fallback_location: root_path)
+  end
+  
+  # 新增方法若需使用,記得新增在before_action
   def set_restaurant
     @restaurant = Restaurant.find(params[:id])
   end
