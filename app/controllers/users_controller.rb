@@ -3,7 +3,8 @@ class UsersController < ApplicationController
   
     def show
       # 不重複出現已評論餐廳
-      @commented_restaurants = @user.restaurants.uniq
+      # 需同步調整user.rb的設定
+      @commented_restaurants = @user.commented_restaurants.uniq
     end
   
     def edit
