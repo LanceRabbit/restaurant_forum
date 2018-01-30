@@ -32,10 +32,11 @@ class Restaurant < ApplicationRecord
     self.liked_users.include?(user)
   end
   
+  # 改用 counter_cache: true 取得(favorites.rb)
   # 計算該餐廳被加入喜愛次數
-  def count_favorites
-    self.favorites_count = self.favorites.size
-    self.save
-  end
+  # def count_favorites
+  #   self.favorites_count = self.favorites.size
+  #   self.save
+  # end
 
 end
