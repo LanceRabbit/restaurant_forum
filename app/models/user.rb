@@ -24,6 +24,10 @@ class User < ApplicationRecord
   # 按讚餐廳
   has_many :likes, dependent: :destroy
   has_many :liked_restaurants, through: :likes, source: :restaurant  
+  
+  # 追蹤其他人
+  has_many :followships, dependent: :destroy
+  has_many :followings, through: :followships
 
   # 驗證是否為Admin
   def admin?
