@@ -29,9 +29,13 @@ class User < ApplicationRecord
   has_many :followships, dependent: :destroy
   has_many :followings, through: :followships
 
+  # 是否已追蹤 
+  def following?(user)
+    self.followings.include?(user)
+  end
+  
   # 驗證是否為Admin
   def admin?
     self.role == "admin"
   end
-
 end
