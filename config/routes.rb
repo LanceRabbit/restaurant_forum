@@ -25,11 +25,14 @@ Rails.application.routes.draw do
   end
   
   # 個人資訊
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:index, :show, :edit, :update]
 
   # resources :restaurants, except: [:new, :create, :edit, :update, :destroy]
   resources :categories, only: :show
   root "restaurants#index"
+  
+  # 追蹤達人
+  resources :followships, only: [:create, :destroy]
 
   # 後台
   # url path for admin 
